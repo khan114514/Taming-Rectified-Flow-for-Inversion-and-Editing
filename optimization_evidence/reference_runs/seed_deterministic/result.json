@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE",
+  "role": "reference",
+  "seed": "seed_deterministic",
+  "task_type": "inference_schedule_optimization",
+  "method": {
+    "name": "sine",
+    "description": "正弦 schedule t=sin((1-i/N)·pi/2)，高噪声端加密（pilot 五候选最佳）",
+    "source_sha256": "f4ed9a25e31be15e138b365714d2ab957ea4d6200fc293d3896fda27d3a65518",
+    "scorer_sha256": "17e1779437e61328f40c7574826a216a007d04f663798371c38dae9590382dc9"
+  },
+  "protocol": {
+    "data": "full 16 图（public 12 + hidden 4），512x512 PNG",
+    "nfe_per_image": 100,
+    "num_steps": 25,
+    "model": "flux-dev bf16, prompt='', guidance=1, inject=0",
+    "metric_direction": "maximize (PSNR)",
+    "quality_gate": "Reference 归一化 (R-B)/(U-B) 须∈[0.15,0.8]（v3 锚点）",
+    "resources": "A100-40G 单卡，flock 串行"
+  },
+  "training": "NOT_APPLICABLE",
+  "execution": {
+    "command": "python3 /root/rfsteps/scorer/run_eval.py --method <method.py> --out <run_dir> --split full",
+    "recorded_at": "2026-10-02T18:43+08:00 至 2026-10-02T19:54+08:00（pilot 窗口，见 run.log 时间戳）",
+    "exit_code": 0,
+    "elapsed_sec": 781.976411819458
+  },
+  "metrics": {
+    "psnr_full": 20.45734928422148,
+    "psnr_public": 20.22483156573475,
+    "psnr_hidden": 21.15490243968167,
+    "ssim_full": 0.6543459747451632,
+    "pixel_mse_full": 753.1346482435863,
+    "latent_mse_full": 0.10438375314697623
+  },
+  "quality_gate": {
+    "normalized_vs_v3_upper_bound": 0.462674,
+    "deterministic_rerun_identical": true
+  },
+  "artifacts": [
+    "optimization_evidence/reference_runs/seed_deterministic/metrics.json",
+    "optimization_evidence/reference_runs/seed_deterministic/run.log",
+    "optimization_evidence/reference_runs/seed_deterministic/schedule.json",
+    "optimization_evidence/reference_runs/seed_deterministic/metrics.json"
+  ]
+}

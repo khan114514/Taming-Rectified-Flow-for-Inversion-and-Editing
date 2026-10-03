@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE",
+  "seeds": [
+    "seed_deterministic"
+  ],
+  "metric": "mean PSNR (dB), full 16 images",
+  "direction": "maximize",
+  "paired_runs": [
+    {
+      "seed": "seed_deterministic",
+      "baseline": 19.528882409499996,
+      "reference": 20.45734928422148,
+      "paired_improvement": 0.928466874721483,
+      "baseline_valid": true,
+      "reference_valid": true
+    }
+  ],
+  "baseline_mean": 19.528882409499996,
+  "baseline_sample_std": null,
+  "reference_mean": 20.45734928422148,
+  "reference_sample_std": null,
+  "absolute_improvement": 0.928466874721483,
+  "relative_improvement_pct": 4.7543,
+  "significance_rule": "确定性评估（复跑逐值一致，anchors.json determinism_check）；Δ>0 即可分辨，无 σ 需求",
+  "anchors_v3": {
+    "upper_bound": 21.535623309030747,
+    "upper_bound_source": "codex round61 实测最强 schedule（final_verify_codex_metrics.json）",
+    "reference_normalized": 0.462674,
+    "baseline_normalized": 0.0,
+    "gate": "reference_normalized ∈ [0.15, 0.8] -> PASS"
+  },
+  "model_artifacts": "NOT_APPLICABLE（非训练任务，无 checkpoint）",
+  "source_results": [
+    "optimization_evidence/baseline_runs/seed_deterministic/result.json",
+    "optimization_evidence/reference_runs/seed_deterministic/result.json"
+  ],
+  "candidates_context": {
+    "uniform": 17.856734441704795,
+    "square": 15.525029259725066,
+    "mu15": 20.150706575951347,
+    "note": "pilot 附加候选，同协议 full split；非正式 B/R 对照"
+  }
+}

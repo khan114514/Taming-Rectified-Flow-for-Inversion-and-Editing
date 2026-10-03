@@ -1,0 +1,157 @@
++ grep -q DEV_DONE /root/setup/dl_dev.log
++ python3 -c '
+import os, sys
+p = "/root/rivermind-data/weights/flux-dev/flux1-dev.safetensors"
+assert os.path.getsize(p) > 23_000_000_000, "dev weight incomplete"
+print("DEV_WEIGHT_OK")'
+DEV_WEIGHT_OK
++ '[' 0 -ne 0 ']'
++ rm -rf /root/rfsteps/pilot/runs
++ mkdir -p /root/rfsteps/pilot/runs
++ for m in mushift uniform sine square mu15
+++ date
++ echo '=== PILOT mushift Fri Oct  2 06:43:13 PM Asia 2026 ==='
+=== PILOT mushift Fri Oct  2 06:43:13 PM Asia 2026 ===
++ python3 /root/rfsteps/scorer/run_eval.py --method /root/rfsteps/pilot/methods/m_mushift.py --out /root/rfsteps/pilot/runs/mushift --split full
+[run_eval] waiting gpu lock (/root/rfsteps/locks/gpu_eval.lock) ...
+[run_eval] gpu lock acquired
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thoroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+Init model
+Loading checkpoint
+Init AE
+[run_eval] models loaded in 27.0s (TEs offloaded, prompt cached)
+[run_eval] public/coco_000000000139: psnr=19.626 ssim=0.6351
+[run_eval] public/coco_000000000285: psnr=23.329 ssim=0.7881
+[run_eval] public/coco_000000000632: psnr=14.754 ssim=0.2019
+[run_eval] public/coco_000000001000: psnr=18.866 ssim=0.6351
+[run_eval] public/coco_000000001268: psnr=16.613 ssim=0.5904
+[run_eval] public/coco_000000001425: psnr=20.513 ssim=0.7452
+[run_eval] public/coco_000000001490: psnr=18.436 ssim=0.5422
+[run_eval] public/coco_000000039769: psnr=17.283 ssim=0.4227
+[run_eval] public/repo_art: psnr=27.047 ssim=0.8795
+[run_eval] public/repo_boy: psnr=17.679 ssim=0.5733
+[run_eval] public/repo_horse: psnr=25.021 ssim=0.8736
+[run_eval] public/repo_nobel: psnr=13.172 ssim=0.6331
+[run_eval] hidden/coco_000000000802: psnr=16.956 ssim=0.5972
+[run_eval] hidden/coco_000000001296: psnr=19.804 ssim=0.7524
+[run_eval] hidden/repo_cartoon: psnr=15.263 ssim=0.5034
+[run_eval] hidden/repo_hiking: psnr=28.100 ssim=0.8040
+[run_eval] DONE psnr=19.5289 ssim=0.6361 score=None elapsed=310s
++ for m in mushift uniform sine square mu15
+++ date
++ echo '=== PILOT uniform Fri Oct  2 06:48:26 PM Asia 2026 ==='
+=== PILOT uniform Fri Oct  2 06:48:26 PM Asia 2026 ===
++ python3 /root/rfsteps/scorer/run_eval.py --method /root/rfsteps/pilot/methods/m_uniform.py --out /root/rfsteps/pilot/runs/uniform --split full
+[run_eval] waiting gpu lock (/root/rfsteps/locks/gpu_eval.lock) ...
+[run_eval] gpu lock acquired
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thoroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+Init model
+Loading checkpoint
+Init AE
+[run_eval] models loaded in 26.0s (TEs offloaded, prompt cached)
+[run_eval] public/coco_000000000139: psnr=19.031 ssim=0.6347
+[run_eval] public/coco_000000000285: psnr=21.494 ssim=0.7666
+[run_eval] public/coco_000000000632: psnr=13.199 ssim=0.1711
+[run_eval] public/coco_000000001000: psnr=15.709 ssim=0.4689
+[run_eval] public/coco_000000001268: psnr=15.840 ssim=0.5864
+[run_eval] public/coco_000000001425: psnr=18.776 ssim=0.7875
+[run_eval] public/coco_000000001490: psnr=18.168 ssim=0.5036
+[run_eval] public/coco_000000039769: psnr=16.616 ssim=0.4779
+[run_eval] public/repo_art: psnr=23.384 ssim=0.8061
+[run_eval] public/repo_boy: psnr=20.478 ssim=0.7145
+[run_eval] public/repo_horse: psnr=23.100 ssim=0.8796
+[run_eval] public/repo_nobel: psnr=9.717 ssim=0.4667
+[run_eval] hidden/coco_000000000802: psnr=16.189 ssim=0.5539
+[run_eval] hidden/coco_000000001296: psnr=17.749 ssim=0.7315
+[run_eval] hidden/repo_cartoon: psnr=11.791 ssim=0.3862
+[run_eval] hidden/repo_hiking: psnr=24.467 ssim=0.8146
+[run_eval] DONE psnr=17.8567 ssim=0.6094 score=None elapsed=787s
++ for m in mushift uniform sine square mu15
+++ date
++ echo '=== PILOT sine Fri Oct  2 07:01:38 PM Asia 2026 ==='
+=== PILOT sine Fri Oct  2 07:01:38 PM Asia 2026 ===
++ python3 /root/rfsteps/scorer/run_eval.py --method /root/rfsteps/pilot/methods/m_sine.py --out /root/rfsteps/pilot/runs/sine --split full
+[run_eval] waiting gpu lock (/root/rfsteps/locks/gpu_eval.lock) ...
+[run_eval] gpu lock acquired
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thoroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+Init model
+Loading checkpoint
+Init AE
+[run_eval] models loaded in 25.9s (TEs offloaded, prompt cached)
+[run_eval] public/coco_000000000139: psnr=19.325 ssim=0.6256
+[run_eval] public/coco_000000000285: psnr=23.917 ssim=0.8034
+[run_eval] public/coco_000000000632: psnr=15.145 ssim=0.2050
+[run_eval] public/coco_000000001000: psnr=15.950 ssim=0.4750
+[run_eval] public/coco_000000001268: psnr=16.667 ssim=0.6103
+[run_eval] public/coco_000000001425: psnr=20.233 ssim=0.7201
+[run_eval] public/coco_000000001490: psnr=19.451 ssim=0.5501
+[run_eval] public/coco_000000039769: psnr=17.229 ssim=0.4216
+[run_eval] public/repo_art: psnr=24.149 ssim=0.8369
+[run_eval] public/repo_boy: psnr=23.820 ssim=0.6727
+[run_eval] public/repo_horse: psnr=25.256 ssim=0.8807
+[run_eval] public/repo_nobel: psnr=21.555 ssim=0.9271
+[run_eval] hidden/coco_000000000802: psnr=18.578 ssim=0.5593
+[run_eval] hidden/coco_000000001296: psnr=19.632 ssim=0.7555
+[run_eval] hidden/repo_cartoon: psnr=23.115 ssim=0.8500
+[run_eval] hidden/repo_hiking: psnr=23.295 ssim=0.5763
+[run_eval] DONE psnr=20.4573 ssim=0.6543 score=None elapsed=782s
++ for m in mushift uniform sine square mu15
+++ date
++ echo '=== PILOT square Fri Oct  2 07:14:45 PM Asia 2026 ==='
+=== PILOT square Fri Oct  2 07:14:45 PM Asia 2026 ===
++ python3 /root/rfsteps/scorer/run_eval.py --method /root/rfsteps/pilot/methods/m_square.py --out /root/rfsteps/pilot/runs/square --split full
+[run_eval] waiting gpu lock (/root/rfsteps/locks/gpu_eval.lock) ...
+[run_eval] gpu lock acquired
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thoroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+Init model
+Loading checkpoint
+Init AE
+[run_eval] models loaded in 25.6s (TEs offloaded, prompt cached)
+[run_eval] public/coco_000000000139: psnr=19.431 ssim=0.6337
+[run_eval] public/coco_000000000285: psnr=15.913 ssim=0.5415
+[run_eval] public/coco_000000000632: psnr=16.984 ssim=0.6336
+[run_eval] public/coco_000000001000: psnr=15.448 ssim=0.4623
+[run_eval] public/coco_000000001268: psnr=11.445 ssim=0.3843
+[run_eval] public/coco_000000001425: psnr=16.875 ssim=0.7863
+[run_eval] public/coco_000000001490: psnr=14.531 ssim=0.3357
+[run_eval] public/coco_000000039769: psnr=14.600 ssim=0.4329
+[run_eval] public/repo_art: psnr=19.912 ssim=0.7487
+[run_eval] public/repo_boy: psnr=12.375 ssim=0.3658
+[run_eval] public/repo_horse: psnr=18.542 ssim=0.7940
+[run_eval] public/repo_nobel: psnr=8.977 ssim=0.3794
+[run_eval] hidden/coco_000000000802: psnr=15.993 ssim=0.4984
+[run_eval] hidden/coco_000000001296: psnr=16.640 ssim=0.6484
+[run_eval] hidden/repo_cartoon: psnr=12.776 ssim=0.4089
+[run_eval] hidden/repo_hiking: psnr=17.958 ssim=0.4836
+[run_eval] DONE psnr=15.5250 ssim=0.5336 score=None elapsed=783s
++ for m in mushift uniform sine square mu15
+++ date
++ echo '=== PILOT mu15 Fri Oct  2 07:27:54 PM Asia 2026 ==='
+=== PILOT mu15 Fri Oct  2 07:27:54 PM Asia 2026 ===
++ python3 /root/rfsteps/scorer/run_eval.py --method /root/rfsteps/pilot/methods/m_mu15.py --out /root/rfsteps/pilot/runs/mu15 --split full
+[run_eval] waiting gpu lock (/root/rfsteps/locks/gpu_eval.lock) ...
+[run_eval] gpu lock acquired
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thoroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+Init model
+Loading checkpoint
+Init AE
+[run_eval] models loaded in 26.7s (TEs offloaded, prompt cached)
+[run_eval] public/coco_000000000139: psnr=19.477 ssim=0.6205
+[run_eval] public/coco_000000000285: psnr=23.358 ssim=0.7925
+[run_eval] public/coco_000000000632: psnr=15.253 ssim=0.2234
+[run_eval] public/coco_000000001000: psnr=16.029 ssim=0.4754
+[run_eval] public/coco_000000001268: psnr=16.858 ssim=0.6157
+[run_eval] public/coco_000000001425: psnr=18.847 ssim=0.7244
+[run_eval] public/coco_000000001490: psnr=19.265 ssim=0.5491
+[run_eval] public/coco_000000039769: psnr=21.009 ssim=0.6368
+[run_eval] public/repo_art: psnr=24.079 ssim=0.8370
+[run_eval] public/repo_boy: psnr=22.920 ssim=0.6401
+[run_eval] public/repo_horse: psnr=24.658 ssim=0.8688
+[run_eval] public/repo_nobel: psnr=12.375 ssim=0.5822
+[run_eval] hidden/coco_000000000802: psnr=18.762 ssim=0.5556
+[run_eval] hidden/coco_000000001296: psnr=20.064 ssim=0.7671
+[run_eval] hidden/repo_cartoon: psnr=24.747 ssim=0.7978
+[run_eval] hidden/repo_hiking: psnr=24.710 ssim=0.8409
+[run_eval] DONE psnr=20.1507 ssim=0.6580 score=None elapsed=782s
++ echo '=== PILOT_ALL_DONE ==='
+=== PILOT_ALL_DONE ===
