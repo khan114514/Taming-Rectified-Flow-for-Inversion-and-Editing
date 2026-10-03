@@ -1,0 +1,13 @@
+# rfsteps 评测依赖（A100 + CUDA 12.1 运行时验证组合）
+# torch 需与 CUDA 匹配，建议在镜像中显式安装 cu121 wheel：
+#   pip3 install torch --index-url https://download.pytorch.org/whl/cu121
+torch
+numpy
+einops
+pillow
+scikit-image
+transformers==4.41.2
+huggingface_hub==0.24.6
+safetensors
+sentencepiece
+fire

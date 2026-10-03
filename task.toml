@@ -1,0 +1,34 @@
+schema_version = "1.3"
+
+[task]
+name = "autoresearch/rfsteps"
+description = "Optimize the timestep schedule of RF-Solver (rectified-flow inversion) under a frozen NFE budget to minimize inversion-reconstruction error (PSNR)."
+authors = [{ name = "AutoResearch Expert" }]
+keywords = ["rectified-flow", "diffusion-inversion", "timestep-schedule", "image-editing", "autoresearch"]
+
+[metadata]
+difficulty_explanation = "Method-level schedule design on a frozen 2nd-order RF-Solver; requires error-model reasoning, not hyperparameter search."
+category = "generative-models"
+paper = "arXiv:2411.04746"
+
+[verifier]
+timeout_sec = 3600.0
+network_mode = "no-network"
+
+[agent]
+network_mode = "public"
+
+[environment]
+os = "linux"
+network_mode = "public"
+gpus = 1
+gpu_types = ["A100", "H100"]
+cpus = 8
+memory_mb = 32768
+storage_mb = 81920
+build_timeout_sec = 3600.0
+
+[environment.env]
+RFSTEPS_WEIGHTS = "/opt/rfsteps/weights"
+HF_HUB_OFFLINE = "1"
+TRANSFORMERS_OFFLINE = "1"
