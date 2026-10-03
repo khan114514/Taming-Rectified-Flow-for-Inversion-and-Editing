@@ -49,6 +49,12 @@ docker build -f environment/Dockerfile .
 python3 tests/run_eval.py --method environment/starter/method.py --out /tmp/out --split public
 ```
 
+## 提交证据（非 Harbor 任务组成部分，仅作提交材料镜像）
+
+- `optimization_evidence/`：Baseline/Reference 正式运行证据（result.json、run.log、metrics、comparison_summary.json、训练证据说明.md、 pilot 候选）
+- `expert_evidence/`：设计文档（01-05）、双轨轨迹 JSONL、run_summary、best_method、hidden 复核 metrics/log、anchors.json、冻结哈希清单
+- `reference/method.py`：参考解（sine schedule）
+
 ## 许可与第三方内容
 
 - `repo/RF-Solver-Edit/` 为上游开源仓库（github.com/wangjiangshan0725/RF-Solver-Edit）只读副本，保留其原始许可证与作者信息
